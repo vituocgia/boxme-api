@@ -100,11 +100,11 @@ cache might look like::
 
     class JSONCache(NoCache):
         def _load(self):
-            data_file = open(settings.BMGA_JSON_CACHE, 'r')
+            data_file = open(settings.BOXME_JSON_CACHE, 'r')
             return json.load(data_file)
 
         def _save(self, data):
-            data_file = open(settings.BMGA_JSON_CACHE, 'w')
+            data_file = open(settings.BOXME_JSON_CACHE, 'w')
             return json.dump(data, data_file)
 
         def get(self, key):

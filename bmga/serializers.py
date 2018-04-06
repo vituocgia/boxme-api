@@ -141,7 +141,7 @@ class Serializer(object):
             self.datetime_formatting = datetime_formatting
         else:
             self.datetime_formatting = getattr(settings,
-                'BMGA_DATETIME_FORMATTING', 'iso-8601')
+                'BOXME_DATETIME_FORMATTING', 'iso-8601')
 
         self.supported_formats = []
 
@@ -151,10 +151,10 @@ class Serializer(object):
         if formats is not None:
             self.formats = formats
 
-        if self.formats is Serializer.formats and hasattr(settings, 'BMGA_DEFAULT_FORMATS'):
-            # We want BMGA_DEFAULT_FORMATS to override unmodified defaults
+        if self.formats is Serializer.formats and hasattr(settings, 'BOXME_DEFAULT_FORMATS'):
+            # We want BOXME_DEFAULT_FORMATS to override unmodified defaults
             # but not intentational changes on Serializer subclasses:
-            self.formats = settings.BMGA_DEFAULT_FORMATS
+            self.formats = settings.BOXME_DEFAULT_FORMATS
 
         if not isinstance(self.formats, (list, tuple)):
             raise ImproperlyConfigured(
@@ -201,7 +201,7 @@ class Serializer(object):
         A hook to control how datetimes are formatted.
 
         Can be overridden at the ``Serializer`` level (``datetime_formatting``)
-        or globally (via ``settings.BMGA_DATETIME_FORMATTING``).
+        or globally (via ``settings.BOXME_DATETIME_FORMATTING``).
 
         Default is ``iso-8601``, which looks like "2010-12-16T03:02:14".
         """
@@ -219,7 +219,7 @@ class Serializer(object):
         A hook to control how dates are formatted.
 
         Can be overridden at the ``Serializer`` level (``datetime_formatting``)
-        or globally (via ``settings.BMGA_DATETIME_FORMATTING``).
+        or globally (via ``settings.BOXME_DATETIME_FORMATTING``).
 
         Default is ``iso-8601``, which looks like "2010-12-16".
         """
@@ -233,7 +233,7 @@ class Serializer(object):
         A hook to control how times are formatted.
 
         Can be overridden at the ``Serializer`` level (``datetime_formatting``)
-        or globally (via ``settings.BMGA_DATETIME_FORMATTING``).
+        or globally (via ``settings.BOXME_DATETIME_FORMATTING``).
 
         Default is ``iso-8601``, which looks like "03:02:14".
         """

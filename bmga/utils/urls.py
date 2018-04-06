@@ -4,7 +4,7 @@ from django.conf import settings
 from django.utils import six
 
 
-_trailing_slash = '/?' if getattr(settings, 'BMGA_ALLOW_MISSING_SLASH', False) else '/'
+_trailing_slash = '/?' if getattr(settings, 'BOXME_ALLOW_MISSING_SLASH', False) else '/'
 
 
 # for backwards compatibility where 3rd parties still call this like a function.

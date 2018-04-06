@@ -45,7 +45,7 @@ The default ``Serializer`` supports the following formats:
 
 Not everyone wants to install or support all the serialization options. If you
 would like to customize the list of supported formats for your entire site
-the :ref:`BMGA_DEFAULT_FORMATS setting <settings.BMGA_DEFAULT_FORMATS>`
+the :ref:`BOXME_DEFAULT_FORMATS setting <settings.BOXME_DEFAULT_FORMATS>`
 allows you to set the default format list site-wide.
 
 If you wish to change the format list for a specific resource, you can pass the
@@ -88,7 +88,7 @@ libraries. BoxMeAPI adopts and recommends the following approach:
 
 * Support the minimum required set of formats in your application.
   If you do not require a format, it's much safer to disable it
-  completely. See :ref:`BMGA_DEFAULT_FORMATS setting <settings.BMGA_DEFAULT_FORMATS>`.
+  completely. See :ref:`BOXME_DEFAULT_FORMATS setting <settings.BOXME_DEFAULT_FORMATS>`.
 * Some parsers offer additional safety check for use with untrusted content.
   The standard BoxMeAPI Serializer attempts to be secure by default using
   features like PyYAML's
@@ -222,7 +222,7 @@ If not available on the current ``Serializer``, returns
 A hook to control how datetimes are formatted.
 
 Can be overridden at the ``Serializer`` level (``datetime_formatting``)
-or globally (via ``settings.BMGA_DATETIME_FORMATTING``).
+or globally (via ``settings.BOXME_DATETIME_FORMATTING``).
 
 Default is ``iso-8601``, which looks like "2010-12-16T03:02:14".
 
@@ -234,7 +234,7 @@ Default is ``iso-8601``, which looks like "2010-12-16T03:02:14".
 A hook to control how dates are formatted.
 
 Can be overridden at the ``Serializer`` level (``datetime_formatting``)
-or globally (via ``settings.BMGA_DATETIME_FORMATTING``).
+or globally (via ``settings.BOXME_DATETIME_FORMATTING``).
 
 Default is ``iso-8601``, which looks like "2010-12-16".
 
@@ -246,7 +246,7 @@ Default is ``iso-8601``, which looks like "2010-12-16".
 A hook to control how times are formatted.
 
 Can be overridden at the ``Serializer`` level (``datetime_formatting``)
-or globally (via ``settings.BMGA_DATETIME_FORMATTING``).
+or globally (via ``settings.BOXME_DATETIME_FORMATTING``).
 
 Default is ``iso-8601``, which looks like "03:02:14".
 

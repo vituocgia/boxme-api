@@ -53,7 +53,7 @@ if 'django.contrib.auth' in settings.INSTALLED_APPS:
             return hmac.new(new_uuid.bytes, digestmod=sha1).hexdigest()
 
         class Meta:
-            abstract = getattr(settings, 'BMGA_ABSTRACT_APIKEY', False)
+            abstract = getattr(settings, 'BOXME_ABSTRACT_APIKEY', False)
 
     def create_api_key(sender, instance, created, **kwargs):
         """

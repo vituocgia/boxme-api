@@ -5039,7 +5039,7 @@ class BustedResource(BasicResource):
         raise self.err_class("<script>alert(1)</script>")
 
 
-@override_settings(BMGA_FULL_DEBUG=False, BMGA_CANNED_ERROR="Sorry, this request could not be processed. Please try again later.")
+@override_settings(BOXME_FULL_DEBUG=False, BOXME_CANNED_ERROR="Sorry, this request could not be processed. Please try again later.")
 class BustedResourceTestCase(TestCase):
     def setUp(self):
         super(BustedResourceTestCase, self).setUp()
@@ -5049,12 +5049,12 @@ class BustedResourceTestCase(TestCase):
         self.request.GET = {'format': 'json'}
         self.request.method = 'GET'
 
-    @override_settings(DEBUG=True, BMGA_FULL_DEBUG=True)
+    @override_settings(DEBUG=True, BOXME_FULL_DEBUG=True)
     def test_debug_on_with_full(self):
         with self.assertRaises(self.resource.err_class):
             self.resource.wrap_view('get_list')(self.request, pk=1)
 
-    @override_settings(DEBUG=True, BMGA_FULL_DEBUG=False)
+    @override_settings(DEBUG=True, BOXME_FULL_DEBUG=False)
     def test_debug_on_without_full(self):
         mail.outbox = []
 
@@ -5065,7 +5065,7 @@ class BustedResourceTestCase(TestCase):
         self.assertTrue(len(content['traceback']) > 0)
         self.assertEqual(len(mail.outbox), 0)
 
-    @override_settings(DEBUG=False, BMGA_FULL_DEBUG=False)
+    @override_settings(DEBUG=False, BOXME_FULL_DEBUG=False)
     def test_debug_off(self):
         SimpleHandler.logged = []
 
@@ -5081,7 +5081,7 @@ class BustedResourceTestCase(TestCase):
         self.assertEqual(len(SimpleHandler.logged), 1)
         SimpleHandler.logged = []
 
-    @override_settings(DEBUG=False, BMGA_FULL_DEBUG=False, BMGA_CANNED_ERROR="Oops, you bwoke it.")
+    @override_settings(DEBUG=False, BOXME_FULL_DEBUG=False, BOXME_CANNED_ERROR="Oops, you bwoke it.")
     def test_debug_off_custom_message(self):
         SimpleHandler.logged = []
 
@@ -5096,7 +5096,7 @@ class BustedResourceTestCase(TestCase):
         resp = self.resource.wrap_view('post_list')(self.request, pk=1)
         self.assertEqual(resp.status_code, 404)
 
-    @override_settings(DEBUG=True, BMGA_FULL_DEBUG=False)
+    @override_settings(DEBUG=True, BOXME_FULL_DEBUG=False)
     def test_escaping(self):
         request = HttpRequest()
         request.method = 'POST'
@@ -5109,7 +5109,7 @@ class BustedResourceTestCase(TestCase):
         self.assertTrue('&lt;script&gt;alert(1)&lt;/script&gt;' in err_data['error_message'])
 
 
-@override_settings(BMGA_FULL_DEBUG=False, BMGA_CANNED_ERROR="Sorry, this request could not be processed. Please try again later.")
+@override_settings(BOXME_FULL_DEBUG=False, BOXME_CANNED_ERROR="Sorry, this request could not be processed. Please try again later.")
 class BustedResourceWithNoneResponseErrorAttrTestCase(TestCase):
     def setUp(self):
         super(BustedResourceWithNoneResponseErrorAttrTestCase, self).setUp()
@@ -5120,12 +5120,12 @@ class BustedResourceWithNoneResponseErrorAttrTestCase(TestCase):
         self.request.GET = {'format': 'json'}
         self.request.method = 'GET'
 
-    @override_settings(DEBUG=True, BMGA_FULL_DEBUG=True)
+    @override_settings(DEBUG=True, BOXME_FULL_DEBUG=True)
     def test_debug_on_with_full(self):
         with self.assertRaises(self.resource.err_class):
             self.resource.wrap_view('get_list')(self.request, pk=1)
 
-    @override_settings(DEBUG=True, BMGA_FULL_DEBUG=False)
+    @override_settings(DEBUG=True, BOXME_FULL_DEBUG=False)
     def test_debug_on_without_full(self):
         mail.outbox = []
 
@@ -5136,7 +5136,7 @@ class BustedResourceWithNoneResponseErrorAttrTestCase(TestCase):
         self.assertTrue(len(content['traceback']) > 0)
         self.assertEqual(len(mail.outbox), 0)
 
-    @override_settings(DEBUG=False, BMGA_FULL_DEBUG=False)
+    @override_settings(DEBUG=False, BOXME_FULL_DEBUG=False)
     def test_debug_off(self):
         SimpleHandler.logged = []
 
@@ -5152,7 +5152,7 @@ class BustedResourceWithNoneResponseErrorAttrTestCase(TestCase):
         self.assertEqual(len(SimpleHandler.logged), 1)
         SimpleHandler.logged = []
 
-    @override_settings(DEBUG=False, BMGA_FULL_DEBUG=False, BMGA_CANNED_ERROR="Oops, you bwoke it.")
+    @override_settings(DEBUG=False, BOXME_FULL_DEBUG=False, BOXME_CANNED_ERROR="Oops, you bwoke it.")
     def test_debug_off_custom_message(self):
         SimpleHandler.logged = []
 
@@ -5167,7 +5167,7 @@ class BustedResourceWithNoneResponseErrorAttrTestCase(TestCase):
         resp = self.resource.wrap_view('post_list')(self.request, pk=1)
         self.assertEqual(resp.status_code, 404)
 
-    @override_settings(DEBUG=True, BMGA_FULL_DEBUG=False)
+    @override_settings(DEBUG=True, BOXME_FULL_DEBUG=False)
     def test_escaping(self):
         request = HttpRequest()
         request.method = 'POST'

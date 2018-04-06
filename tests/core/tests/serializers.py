@@ -90,7 +90,7 @@ class SerializerTestCase(TestCase):
         self.assertRaises(ImproperlyConfigured, Serializer, formats=['json', 'xml'], content_types={'json': 'text/json'})
 
     def test_default_formats_setting(self):
-        with self.settings(BMGA_DEFAULT_FORMATS=('json', 'xml')):
+        with self.settings(BOXME_DEFAULT_FORMATS=('json', 'xml')):
             # Confirm that the setting will override the default values:
             s = Serializer()
             self.assertEqual(list(s.formats), ['json', 'xml'])
@@ -195,19 +195,19 @@ class SerializerTestCase(TestCase):
         serializer = Serializer(datetime_formatting='random-garbage')
         self.assertEqual(serializer.format_datetime(datetime.datetime(2010, 12, 16, 2, 31, 33)), '2010-12-16T02:31:33')
 
-        with self.settings(BMGA_DATETIME_FORMATTING='iso-8601'):
+        with self.settings(BOXME_DATETIME_FORMATTING='iso-8601'):
             serializer = Serializer()
             self.assertEqual(serializer.format_datetime(datetime.datetime(2010, 12, 16, 2, 31, 33)), '2010-12-16T02:31:33')
 
-        with self.settings(BMGA_DATETIME_FORMATTING='iso-8601-strict'):
+        with self.settings(BOXME_DATETIME_FORMATTING='iso-8601-strict'):
             serializer = Serializer()
             self.assertEqual(serializer.format_datetime(datetime.datetime(2010, 12, 16, 2, 31, 33, 10)), '2010-12-16T02:31:33')
 
-        with self.settings(BMGA_DATETIME_FORMATTING='rfc-2822'):
+        with self.settings(BOXME_DATETIME_FORMATTING='rfc-2822'):
             serializer = Serializer()
             self.assertEqual(serializer.format_datetime(datetime.datetime(2010, 12, 16, 2, 31, 33)), u'Thu, 16 Dec 2010 02:31:33 -0600')
 
-        with self.settings(BMGA_DATETIME_FORMATTING='random-garbage'):
+        with self.settings(BOXME_DATETIME_FORMATTING='random-garbage'):
             serializer = Serializer()
             self.assertEqual(serializer.format_datetime(datetime.datetime(2010, 12, 16, 2, 31, 33)), '2010-12-16T02:31:33')
 
@@ -224,15 +224,15 @@ class SerializerTestCase(TestCase):
         serializer = Serializer(datetime_formatting='random-garbage')
         self.assertEqual(serializer.format_date(datetime.date(2010, 12, 16)), '2010-12-16')
 
-        with self.settings(BMGA_DATETIME_FORMATTING='iso-8601'):
+        with self.settings(BOXME_DATETIME_FORMATTING='iso-8601'):
             serializer = Serializer()
             self.assertEqual(serializer.format_date(datetime.date(2010, 12, 16)), '2010-12-16')
 
-        with self.settings(BMGA_DATETIME_FORMATTING='rfc-2822'):
+        with self.settings(BOXME_DATETIME_FORMATTING='rfc-2822'):
             serializer = Serializer()
             self.assertEqual(serializer.format_date(datetime.date(2010, 12, 16)), u'16 Dec 2010')
 
-        with self.settings(BMGA_DATETIME_FORMATTING='random-garbage'):
+        with self.settings(BOXME_DATETIME_FORMATTING='random-garbage'):
             serializer = Serializer()
             self.assertEqual(serializer.format_date(datetime.date(2010, 12, 16)), '2010-12-16')
 
@@ -252,19 +252,19 @@ class SerializerTestCase(TestCase):
         serializer = Serializer(datetime_formatting='random-garbage')
         self.assertEqual(serializer.format_time(datetime.time(2, 31, 33)), '02:31:33')
 
-        with self.settings(BMGA_DATETIME_FORMATTING='iso-8601'):
+        with self.settings(BOXME_DATETIME_FORMATTING='iso-8601'):
             serializer = Serializer()
             self.assertEqual(serializer.format_time(datetime.time(2, 31, 33)), '02:31:33')
 
-        with self.settings(BMGA_DATETIME_FORMATTING='iso-8601-strict'):
+        with self.settings(BOXME_DATETIME_FORMATTING='iso-8601-strict'):
             serializer = Serializer()
             self.assertEqual(serializer.format_time(datetime.time(2, 31, 33, 10)), '02:31:33')
 
-        with self.settings(BMGA_DATETIME_FORMATTING='rfc-2822'):
+        with self.settings(BOXME_DATETIME_FORMATTING='rfc-2822'):
             serializer = Serializer()
             self.assertEqual(serializer.format_time(datetime.time(2, 31, 33)), u'02:31:33 -0600')
 
-        with self.settings(BMGA_DATETIME_FORMATTING='random-garbage'):
+        with self.settings(BOXME_DATETIME_FORMATTING='random-garbage'):
             serializer = Serializer()
             self.assertEqual(serializer.format_time(datetime.time(2, 31, 33)), '02:31:33')
 

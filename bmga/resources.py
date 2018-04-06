@@ -262,7 +262,7 @@ class Resource(six.with_metaclass(DeclarativeMetaclass)):
                 # A real, non-expected exception.
                 # Handle the case where the full traceback is more helpful
                 # than the serialized error.
-                if settings.DEBUG and getattr(settings, 'BMGA_FULL_DEBUG', False):
+                if settings.DEBUG and getattr(settings, 'BOXME_FULL_DEBUG', False):
                     raise
 
                 # Re-raise the error to get a proper traceback when the error
@@ -312,7 +312,7 @@ class Resource(six.with_metaclass(DeclarativeMetaclass)):
             }
         else:
             data = {
-                "error_message": getattr(settings, 'BMGA_CANNED_ERROR', "Sorry, this request could not be processed. Please try again later."),
+                "error_message": getattr(settings, 'BOXME_CANNED_ERROR', "Sorry, this request could not be processed. Please try again later."),
             }
 
         if response_class.status_code >= 500:

@@ -5,4 +5,4 @@ INSTALLED_APPS.append('slashless')
 ROOT_URLCONF = 'slashless.api.urls'
 
 APPEND_SLASH = False
-BMGA_ALLOW_MISSING_SLASH = True
+BOXME_ALLOW_MISSING_SLASH = True

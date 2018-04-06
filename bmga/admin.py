@@ -15,10 +15,10 @@ if 'django.contrib.auth' in settings.INSTALLED_APPS:
         raw_id_fields = ['user']
         list_display = ['id', 'user', 'key', 'created']
 
-    ABSTRACT_APIKEY = getattr(settings, 'BMGA_ABSTRACT_APIKEY', False)
+    ABSTRACT_APIKEY = getattr(settings, 'BOXME_ABSTRACT_APIKEY', False)
 
     if ABSTRACT_APIKEY and not isinstance(ABSTRACT_APIKEY, bool):
-        raise TypeError("'BMGA_ABSTRACT_APIKEY' must be either 'True' "
+        raise TypeError("'BOXME_ABSTRACT_APIKEY' must be either 'True' "
                         "or 'False'.")
 
     if not ABSTRACT_APIKEY:

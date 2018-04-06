@@ -75,7 +75,7 @@ LOGGING = {
     },
 }
 
-BMGA_FULL_DEBUG = False
+BOXME_FULL_DEBUG = False
 
 USE_TZ = True
 

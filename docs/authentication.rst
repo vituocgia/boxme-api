@@ -109,7 +109,7 @@ objects. Hooking it up looks like::
 .. note::
 
    In some cases it may be useful to make the ``ApiKey`` model an `abstract
-   base class`_. To enable this, set ``settings.BMGA_ABSTRACT_APIKEY`` to
+   base class`_. To enable this, set ``settings.BOXME_ABSTRACT_APIKEY`` to
    ``True``. See `the documentation for this setting`_ for more information.
 
 .. _`this post`: http://www.nerdydork.com/basic-authentication-on-mod_wsgi.html
