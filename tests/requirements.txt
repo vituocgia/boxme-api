@@ -1,5 +1,5 @@
 -r ../requirements.txt
-biplist
+biplist==1.0.3
 coverage
 defusedxml
 lxml
