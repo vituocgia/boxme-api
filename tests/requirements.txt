@@ -3,6 +3,6 @@ biplist==1.0.3
 coverage==4.5.1
 defusedxml==0.5.0
 lxml==4.2.1
-mock<1.1.0
+mock==2.0.0
 pytz==2013b
 PyYAML
